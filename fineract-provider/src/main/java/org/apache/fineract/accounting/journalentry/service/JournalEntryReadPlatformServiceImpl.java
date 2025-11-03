@@ -236,10 +236,7 @@ public class JournalEntryReadPlatformServiceImpl implements JournalEntryReadPlat
     }
 
     @Override
-    public Page<JournalEntryData> retrieveAll(final SearchParameters searchParameters, final Long glAccountId,
-                                              final Boolean onlyManualEntries, final LocalDate fromDate, final LocalDate toDate, final LocalDate submittedOnDateFrom,
-                                              final LocalDate submittedOnDateTo, final String transactionId, final Integer entityType,
-                                              final JournalEntryAssociationParametersData associationParametersData) {
+    public Page<JournalEntryData> retrieveAll(final SearchParameters searchParameters, final Long glAccountId, final Boolean onlyManualEntries, final LocalDate fromDate, final LocalDate toDate, final LocalDate submittedOnDateFrom, final LocalDate submittedOnDateTo, final String transactionId, final Integer entityType, final JournalEntryAssociationParametersData associationParametersData) {
 
         GLJournalEntryMapper rm = getGlJournalEntryMapper(associationParametersData);
         final StringBuilder sqlBuilder = new StringBuilder(200);
@@ -388,8 +385,7 @@ public class JournalEntryReadPlatformServiceImpl implements JournalEntryReadPlat
     }
 
     @Override
-    public JournalEntryData retrieveGLJournalEntryById(final long glJournalEntryId,
-                                                       JournalEntryAssociationParametersData associationParametersData) {
+    public JournalEntryData retrieveGLJournalEntryById(final long glJournalEntryId, JournalEntryAssociationParametersData associationParametersData) {
         try {
 
             final GLJournalEntryMapper rm = getGlJournalEntryMapper(associationParametersData);
@@ -459,8 +455,7 @@ public class JournalEntryReadPlatformServiceImpl implements JournalEntryReadPlat
                 expenseAccountOpeningBalances);
     }
 
-    private List<JournalEntryData> populateOpeningBalances(final List<JournalEntryData> existingOpeningBalanceTransactions,
-                                                           final List<JournalEntryData> allOpeningTransactions) {
+    private List<JournalEntryData> populateOpeningBalances(final List<JournalEntryData> existingOpeningBalanceTransactions, final List<JournalEntryData> allOpeningTransactions) {
         final List<JournalEntryData> allOpeningBalanceTransactions = new ArrayList<>(allOpeningTransactions.size());
         for (final JournalEntryData newOpeningBalanceTransaction : allOpeningTransactions) {
             boolean isNewTransactionAddedToCollection = false;
@@ -491,8 +486,7 @@ public class JournalEntryReadPlatformServiceImpl implements JournalEntryReadPlat
         return openingBalanceTransactions;
     }
 
-    private List<JournalEntryData> retrieveOfficeBalanceTransactions(final Long officeId, final String transactionId,
-                                                                     final String currencyCode) {
+    private List<JournalEntryData> retrieveOfficeBalanceTransactions(final Long officeId, final String transactionId, final String currencyCode) {
         final Long contraId = null;
         return retrieveContraTransactions(officeId, contraId, transactionId, currencyCode).getPageItems();
     }
@@ -508,8 +502,7 @@ public class JournalEntryReadPlatformServiceImpl implements JournalEntryReadPlat
         return transactionId;
     }
 
-    private Page<JournalEntryData> retrieveContraTransactions(final Long officeId, final Long contraId, final String transactionId,
-                                                              final String currencyCode) {
+    private Page<JournalEntryData> retrieveContraTransactions(final Long officeId, final Long contraId, final String transactionId, final String currencyCode) {
         final Integer entityType = null;
         final Boolean onlyManualEntries = null;
         final LocalDate fromDate = null;

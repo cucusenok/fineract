@@ -41,8 +41,7 @@ public final class LoanDownPaymentTransactionValidator {
 
     private final LoanBalanceService loanBalanceService;
 
-    public void validateRepaymentDateIsOnNonWorkingDay(final LocalDate repaymentDate, final WorkingDays workingDays,
-            final boolean allowTransactionsOnNonWorkingDay) {
+    public void validateRepaymentDateIsOnNonWorkingDay(final LocalDate repaymentDate, final WorkingDays workingDays, final boolean allowTransactionsOnNonWorkingDay) {
         if (!allowTransactionsOnNonWorkingDay && !WorkingDaysUtil.isWorkingDay(workingDays, repaymentDate)) {
             final String errorMessage = "Repayment date cannot be on a non working day";
             throw new LoanApplicationDateException("repayment.date.on.non.working.day", errorMessage, repaymentDate);

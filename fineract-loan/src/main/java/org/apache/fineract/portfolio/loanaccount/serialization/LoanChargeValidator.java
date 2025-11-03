@@ -83,8 +83,7 @@ public final class LoanChargeValidator {
         }
     }
 
-    public void validateRepaymentTypeTransactionNotBeforeAChargeRefund(final Loan loan, final LoanTransaction repaymentTransaction,
-            final String reversedOrCreated) {
+    public void validateRepaymentTypeTransactionNotBeforeAChargeRefund(final Loan loan, final LoanTransaction repaymentTransaction, final String reversedOrCreated) {
         if (repaymentTransaction.isRepaymentLikeType() && !repaymentTransaction.isChargeRefund()) {
             final boolean existsChargeRefund = loanTransactionRepository.existsNonReversedByLoanAndTypeAndAfterDate(loan,
                     LoanTransactionType.CHARGE_REFUND, repaymentTransaction.getTransactionDate());
