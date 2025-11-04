@@ -982,9 +982,9 @@ public class LoanTransactionValidatorImpl implements LoanTransactionValidator {
     }
 
     protected Set<String> getRepaymentParameters() {
-        return new HashSet<>(Arrays.asList("transactionDate", "transactionAmount", "externalId", "note",
-                "locale", "dateFormat", "paymentTypeId", "accountNumber", "checkNumber", "routingCode", "receiptNumber", "bankNumber",
-                "loanId", "numberOfRepayments", "interestRefundCalculation"));
+        return new HashSet<>(Arrays.asList("transactionDate", "transactionAmount", "externalId", "note", "locale", "dateFormat",
+                "paymentTypeId", "accountNumber", "checkNumber", "routingCode", "receiptNumber", "bankNumber", "loanId",
+                "numberOfRepayments", "interestRefundCalculation"));
     }
 
     @Override
